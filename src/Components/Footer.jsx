@@ -62,7 +62,7 @@ const Footer = () => {
 
       {/* BOTTOM */}
       <div className="footer-bottom">
-        <p>© Copyright Reserved by Company.com</p>
+        <p>© Copyright Reserved by Zentro.core</p>
         <div className="footer-policy">
           <span>Privacy Policy</span>
           <span>Term of Service</span>
