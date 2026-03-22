@@ -1,0 +1,181 @@
+/* ================= SECTION ================= */
+.main-services-v2 {
+  padding: 30px 0;
+  background: #ffffff;
+}
+
+.msv2-tag {
+  display: block;
+  text-align: center;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  color: #777;
+  margin-bottom: 8px;
+}
+
+.msv2-title {
+  text-align: center;
+  font-size: 2.7rem;
+  font-weight: 700;
+  margin-bottom: 60px;
+}
+
+/* ================= GRID ================= */
+.msv2-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 38px;
+}
+
+/* ================= CARD ================= */
+.msv2-card {
+  background: #ffffff;
+  border-radius: 26px;
+  overflow: hidden;
+  border: 1px solid #e5e2d9;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.msv2-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.12);
+  background: #eaff00;
+  border: none;
+}
+
+/* ================= IMAGE ================= */
+.msv2-img-wrap {
+  position: relative;
+  padding: 14px;
+}
+
+.msv2-img-wrap img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+
+  /* Square top + curved bottom */
+  border-radius:3px 3px 2px 90px;
+}
+
+/* ================= ICON ================= */
+.msv2-icon {
+  position: absolute;
+  top: 26px;
+  left: 26px;
+  width: 44px;
+  height: 44px;
+  background: #ffffff;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+}
+
+.msv2-icon i {
+  font-size: 20px;
+  color: #111;
+}
+
+/* ================= CONTENT ================= */
+.msv2-content {
+  padding: 28px;
+}
+
+.msv2-content h3 {
+  font-size: 1.45rem;
+  font-weight: 600;
+  margin-bottom: 28px;
+}
+
+/* ================= BUTTON ================= */
+.msv2-btn {
+  width: 100%;
+  padding: 4px 20px;
+  border-radius: 25px;
+  border: 1px solid #ddd;
+  background: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  transition: color 0.35s ease, border-color 0.35s ease;
+}
+
+/* WhatsApp Icon */
+.wa-icon {
+  width: 38px;
+  height: 38px;
+  background: #f2f2f2;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  z-index: 2;
+}
+
+.wa-icon i {
+  font-size: 18px;
+  color: #25d366;
+}
+
+/* Hover Direction Effect */
+.msv2-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #000 0%, #222 100%);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+  z-index: 1;
+}
+
+.msv2-btn:hover::before {
+  transform: scaleX(1);
+}
+
+.msv2-btn:hover {
+  color: #f5f0f0 !important;
+ border-color: #000;
+}
+
+.msv2-btn:hover .wa-icon {
+  background: #ffffff;
+}
+
+.msv2-btn:hover .wa-icon i {
+  color: #25d366;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 992px) {
+  .msv2-title {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .msv2-grid {
+    grid-template-columns: 1fr;
+  }
+  .msv2-img-wrap img {
+    height: 240px;
+  }
+  .msv2-title {
+    font-size: 1.8rem;
+    margin-bottom: 40px;
+  }
+}
+
+
+/* FIX: keep text above black hover layer */
+.msv2-btn,
+.msv2-btn span,
+.msv2-btn i {
+  position: relative;
+  z-index: 2;
+
+}

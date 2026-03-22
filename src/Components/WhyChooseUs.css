@@ -1,0 +1,196 @@
+/* ================= SECTION ================= */
+.why-section {
+  background: radial-gradient(circle at top, #1a1a1a, #000);
+  padding: 40px 0;
+  color: #fff;
+}
+
+.why-container {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* ================= IMAGE ================= */
+.why-image-box {
+  position: relative;
+}
+
+.why-image-box img {
+ height: 550px;
+ width: 100%;
+  border-radius: 28px;
+}
+
+/* ================= ROTATING BADGE ================= */
+.rotating-badge {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  width: 160px;
+  height: 160px;
+}
+
+.rotating-badge::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #ffffff;
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.rotating-badge svg {
+  width: 100%;
+  height: 100%;
+  animation: rotateText 18s linear infinite;
+  position: relative;
+  z-index: 1;
+}
+
+.rotating-badge text {
+  fill: #111;
+  font-size: 14px;
+  letter-spacing: 4px;
+}
+
+/* CENTER LOGO */
+.badge-center {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 75px;
+  height: 75px;
+  background: #eaff00;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  z-index: 2;
+}
+
+.badge-center i {
+  font-size: 30px;
+  color: #111;
+}
+
+/* ROTATION */
+@keyframes rotateText {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ================= RIGHT CONTENT ================= */
+.why-tag {
+  display: block;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  color: #b5ff00;
+  margin-bottom: 12px;
+}
+
+.why-content h2 {
+  font-size: 2.6rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+/* ================= LIST ================= */
+.why-list {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.why-item {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  transition: transform 0.3s ease;
+}
+
+.why-icon {
+  width: 56px;
+  height: 56px;
+  background: #111;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  transition: background 0.35s ease;
+}
+
+.why-icon i {
+  font-size: 24px;
+  color: #eaff00;
+  transition: color 0.35s ease;
+}
+
+/* HOVER EFFECT (IMAGE-3) */
+.why-item:hover .why-icon {
+  background: #eaff00;
+}
+
+.why-item:hover .why-icon i {
+  color: #000;
+}
+
+.why-item h4 {
+  font-size: 1.15rem;
+  margin-bottom: 6px;
+}
+
+.why-item p {
+  font-size: 0.9rem;
+  color: #aaa;
+  line-height: 1.6;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 992px) {
+  .why-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .why-image-box img {
+    height: auto;
+    min-height: 350px;
+  }
+
+  .why-content h2 {
+    font-size: 2rem;
+  }
+
+  .rotating-badge {
+    width: 120px;
+    height: 120px;
+    top: 15px;
+    left: 15px;
+  }
+
+  .badge-center {
+    width: 60px;
+    height: 60px;
+  }
+
+  .badge-center i {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 576px) {
+  .why-content h2 {
+    font-size: 1.8rem;
+  }
+  .why-item {
+    flex-direction: column;
+    gap: 12px;
+  }
+}

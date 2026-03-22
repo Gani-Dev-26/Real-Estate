@@ -1,0 +1,182 @@
+/* ================= SERVICES SECTION ================= */
+.services-section {
+  padding: 30px 0;
+  background: #ffffff;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+/* ================= SERVICE CARD ================= */
+.service-card {
+  position: relative;
+  height: 300px;
+  border-radius: 18px;
+  background-color: #f3e7cf7e; /* ✅ CREAM IMMEDIATE */
+  overflow: hidden;
+  cursor: pointer;
+
+  transform: translateZ(0);        /* GPU STABLE */
+  will-change: transform;
+  transition: transform 0.3s ease;
+}
+
+/* ================= IMAGE LAYER ================= */
+.service-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  /* background-image: var(--service-bg); */
+  background-size: cover;
+  background-position: center;
+
+  opacity: 0;
+  filter: blur(8px);
+  transform: scale(1.05);
+
+  transition:
+    opacity 0.5s ease,
+    filter 0.5s ease,
+    transform 0.5s ease;
+
+  z-index: 1;
+}
+
+/* ================= OVERLAY ================= */
+.service-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 20, 18, 0.45);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 2;
+}
+
+/* ================= ICON ================= */
+.service-icon {
+  position: relative;
+  z-index: 3;
+  width: 86px;
+  height: 86px;
+  margin: 50px auto 18px;
+  background: #ffffff;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  transition: all 0.35s ease;
+}
+
+.service-icon i {
+  font-size: 30px;
+  color: #222;
+}
+
+/* ================= TITLE ================= */
+.service-card h3 {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #222;
+  transition: color 0.35s ease;
+}
+
+/* ================= HOVER ================= */
+.service-card:hover {
+  transform: translateY(-6px);
+}
+
+.service-card:hover::after {
+  opacity: 1;
+  filter: blur(0);
+  transform: scale(1);
+}
+
+.service-card:hover .service-overlay {
+  opacity: 1;
+}
+
+.service-card:hover h3 {
+  color: #ffffff;
+}
+
+.service-card:hover .service-icon {
+  background: #eaff00;
+}
+
+.service-card:hover .service-icon i {
+  color: #111;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 992px) {
+  .services-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 576px) {
+  .services-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 15px;
+    padding-bottom: 25px;
+  }
+  .service-card {
+    flex: 0 0 85%;
+    scroll-snap-align: center;
+  }
+  .services-grid::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+
+/* TOP ACCENT BORDER */
+.service-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  background: #eaff00;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.45s ease;
+  z-index: 4;
+}
+.service-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 20, 18, 0.55);
+
+  opacity: 0;
+  transform: translateY(100%);
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+
+  z-index: 2;
+}
+
+.service-card:hover::after {
+  opacity: 1;
+  filter: blur(0);
+  transform: scale(1);
+  /* transition-delay: 0.05s; */
+}
+.service-card:hover::before {
+  transform: scaleX(2); /* yellow border appears */
+}
+
+.service-card:hover .service-overlay {
+  transform: translateY(0); /* overlay slides UP */
+}
+

@@ -1,0 +1,159 @@
+/* ================= SECTION ================= */
+.testimonials {
+  padding: 40px 0;
+  color: #111;
+}
+
+/* ================= HEADER ================= */
+.test-head {
+  max-width: 1300px;
+  margin: auto;
+  position: relative;
+}
+
+.test-tag {
+  color: #e87211;
+  font-size: 1rem;
+  letter-spacing: 2px;
+}
+
+.test-head h2 {
+  font-size: 2.8rem;
+  margin-top: 10px;
+}
+
+/* ARROWS */
+.test-arrows {
+  position: absolute;
+  right: 0;
+  top: 20px;
+}
+
+.test-arrows button {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid #444;
+  background: transparent;
+  color: #222;
+  cursor: pointer;
+}
+
+/* ================= SLIDER ================= */
+.test-slider {
+  max-width: 1260px;
+  margin: 60px auto 0;
+  overflow: hidden;
+}
+
+.test-track {
+  display: flex;
+  gap: 30px;
+  will-change: transform;
+}
+
+/* ================= CARD ================= */
+.test-card {
+  flex: 0 0 calc(50% - 15px);
+  background: #fff;
+  border-radius: 32px;
+  padding: 30px;
+  display: flex;
+  gap: 24px;
+  position: relative;
+}
+
+/* IMAGE */
+.test-img img {
+  width: 110px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.stars {
+  color: #caff00;
+  margin-top: 6px;
+}
+
+/* CONTENT */
+.test-content p {
+  color: #666;
+}
+
+.test-content hr {
+  margin: 20px 0;
+  border: none;
+  border-top: 1px solid #ddd;
+}
+
+.test-content span {
+  font-size: 0.85rem;
+  color: #777;
+}
+
+/* QUOTE */
+.quote {
+  position: absolute;
+  right: 20px;
+  bottom: 25px;
+  width: 60px;
+  height: 60px;
+  background: #caff00;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 32px;
+}
+
+/* ================= DOTS ================= */
+.test-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.test-dots span {
+  width: 8px;
+  height: 8px;
+  background: #999;
+  border-radius: 50%;
+}
+
+.test-dots .active {
+  background: #caff00;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 900px) {
+  .test-card {
+    flex: 0 0 100%;
+  }
+
+  .test-track {
+    gap: 20px;
+  }
+
+  .test-head h2 {
+    font-size: 2rem;
+  }
+}
+.test-slider {
+  overflow: hidden;
+  cursor: grab;
+}
+
+.test-slider:active {
+  cursor: grabbing;
+}
+
+.test-track {
+  display: flex;
+  gap: 30px;
+  will-change: transform;
+}
+
+.test-card {
+  min-width: calc(50% - 15px);
+}

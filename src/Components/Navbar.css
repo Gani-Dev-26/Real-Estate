@@ -1,0 +1,245 @@
+/* ================= BASE ================= */
+.navbar {
+  padding: 18px 0;
+  z-index: 9999;
+
+  transition:
+    background 0.35s ease,
+    box-shadow 0.35s ease,
+    border-radius 0.35s ease,
+    width 0.35s ease,
+    margin 0.35s ease;
+}
+
+/* ================= TRANSPARENT (INITIAL) ================= */
+.nav-transparent {
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(10px);
+
+  width: calc(100% - 80px);
+  margin: 20px auto 0;
+  border-radius: 60px;
+
+  transform: translateY(0);
+}
+
+/* ================= SOLID (ON SCROLL) ================= */
+.nav-solid {
+  background: #ffffff;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+
+  width: 100%;
+  margin: 0;
+  border-radius: 0;
+
+  /* animation */
+  animation: navSlideDown 0.45s ease forwards;
+}
+
+/* ================= SLIDE DOWN ANIMATION ================= */
+@keyframes navSlideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ================= BRAND ================= */
+.navbar-brand {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+}
+
+.nav-solid .navbar-brand {
+  color: #111111;
+}
+
+.logo-icon {
+  color: #eaff00;
+  margin-right: 6px;
+  font-size: 1.4rem;
+}
+
+/* ================= NAV LINKS ================= */
+.nav-link {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  color: #ffffff !important;
+  transition: color 0.3s ease;
+}
+
+.nav-solid .nav-link {
+  color: #111111 !important;
+}
+
+/* ================= BUTTON ================= */
+.btn-touch {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #eaff00bd;
+  border-radius: 50px;
+  padding: 10px 22px;
+  font-weight: 600;
+  color: #111111;
+}
+
+.icon-circle {
+  width: 40px;
+  height: 40px;
+  background: #111111;
+  color: #eaff00;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+
+/* ================= TOGGLER ================= */
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.nav-solid .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 991px) {
+  .nav-transparent {
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+    background: #ffffff;
+  }
+
+  .navbar-brand {
+    color: #111111;
+  }
+
+  .nav-link {
+    color: #111111 !important;
+  }
+
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  }
+}
+
+
+/* Initial hidden state */
+/* ================= PREMIUM DROPDOWN ANIMATION ================= */
+
+.hover-dropdown .dropdown-menu {
+  display: block; /* keep for animation */
+  opacity: 0;
+  visibility: hidden;
+
+  transform: translateY(-16px) scale(0.97);
+  transform-origin: top center;
+
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 10px 0;
+
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+
+  pointer-events: none;
+  backdrop-filter: blur(6px);
+background: rgba(255, 255, 255, 0.63);
+}
+
+/* SHOW DROPDOWN */
+.hover-dropdown:hover .dropdown-menu,
+.hover-dropdown .dropdown-menu.show,
+.hover-dropdown:focus-within .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+/* ================= DROPDOWN ITEMS ================= */
+
+.dropdown-item {
+  position: relative;
+  padding: 12px 22px;
+  font-weight: 500;
+  color: #111;
+  background: transparent;
+
+  opacity: 0;
+  transform: translateY(8px);
+
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease,
+    background 0.25s ease,
+    color 0.25s ease;
+}
+
+/* LEFT ACCENT BAR (HIDDEN) */
+.dropdown-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%) scaleY(0);
+  width: 4px;
+  height: 60%;
+  background: #eaff00;
+  border-radius: 4px;
+
+  transition: transform 0.3s ease;
+}
+
+/* ITEM APPEAR ANIMATION */
+.hover-dropdown:hover .dropdown-item,
+.hover-dropdown .dropdown-menu.show .dropdown-item,
+.hover-dropdown:focus-within .dropdown-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* STAGGER EFFECT */
+.hover-dropdown:hover .dropdown-item:nth-child(1), .hover-dropdown .dropdown-menu.show .dropdown-item:nth-child(1) { transition-delay: 0.06s; }
+.hover-dropdown:hover .dropdown-item:nth-child(2), .hover-dropdown .dropdown-menu.show .dropdown-item:nth-child(2) { transition-delay: 0.12s; }
+.hover-dropdown:hover .dropdown-item:nth-child(3), .hover-dropdown .dropdown-menu.show .dropdown-item:nth-child(3) { transition-delay: 0.18s; }
+.hover-dropdown:hover .dropdown-item:nth-child(4), .hover-dropdown .dropdown-menu.show .dropdown-item:nth-child(4) { transition-delay: 0.24s; }
+
+/* ================= ITEM HOVER EFFECT ================= */
+
+.dropdown-item:hover {
+  background: rgba(234, 255, 0, 0.12);
+  color: #000;
+}
+
+.dropdown-item:hover::before {
+  transform: translateY(-50%) scaleY(1);
+}
+
+
+.btn-touch:hover {
+  background: #1edf2eab;
+}
+
+.btn-touch:hover .icon-circle {
+  background: #000;
+  transform: rotate(90deg);
+  transition: transform 0.25s ease;
+}

@@ -1,0 +1,265 @@
+/* ================= WHO WE ARE ================= */
+.who-section {
+  padding: 70px 0;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.who-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* ================= LEFT CONTENT ================= */
+.who-subtitle {
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  color: #7a7a7a;
+}
+
+.who-title {
+  font-size: 2.8rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 18px 0;
+  color: #0f2f1f;
+}
+
+.who-desc {
+  font-size: 1.05rem;
+  color: #555;
+  max-width: 520px;
+}
+
+.who-list {
+  list-style: none;
+  padding: 0;
+  margin: 25px 0;
+}
+
+.who-list li {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+/* EXPERIENCE */
+.who-exp {
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.who-exp h1 {
+  font-size: 5rem;
+  font-weight: 700;
+  color: #1e1e1e;
+  line-height: 1;
+  margin: 0;
+}
+
+.who-exp p {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* ================= RIGHT IMAGES ================= */
+.who-images {
+  position: relative;
+  width: 100%;
+}
+
+/* BIG IMAGE */
+.img-large-box img {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  border-radius: 28px;
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.15);
+}
+
+/* CAPTION */
+.img-caption {
+  margin-top: 14px;
+  font-size: 0.95rem;
+  color: #666;
+  max-width: 90%;
+}
+
+/* SMALL OVERLAP IMAGE */
+.img-small {
+  position: absolute;
+  bottom: -40px;
+  left: -80px;
+  width: 55%;
+  border-radius: 22px;
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.25);
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 992px) {
+  .who-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .img-small {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .img-large-box img {
+    height: 400px;
+  }
+}
+
+/* ================= VIDEO THUMB ================= */
+.video-thumb {
+  position: absolute;
+  bottom: -40px;
+  left: -80px;
+  width: 55%;
+  border-radius: 22px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.25);
+}
+
+.video-thumb img {
+  width: 100%;
+  display: block;
+  border-radius: 22px;
+}
+
+/* ================= PLAY BUTTON ================= */
+.play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 70px;
+  height: 70px;
+  transform: translate(-50%, -50%);
+  background: #ffffff;
+  color: #111;
+  font-size: 24px;
+  font-weight: bold;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 2;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+}
+
+/* ================= PULSE RINGS ================= */
+.play-btn::before,
+.play-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.7);
+  animation: pulseRing 2.5s infinite;
+}
+
+.play-btn::after {
+  animation-delay: 1.2s;
+}
+
+@keyframes pulseRing {
+  0% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1.9);
+    opacity: 0;
+  }
+}
+
+/* ================= HOVER EFFECT ================= */
+.video-thumb:hover img {
+  transform: scale(1.05);
+  transition: transform 0.8s ease;
+}
+
+.video-thumb:hover .play-btn {
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 992px) {
+  .video-thumb {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    margin-top: 20px;
+  }
+}
+/* ================= VIDEO MODAL ================= */
+.video-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-modal-content {
+  position: relative;
+  width: 80%;
+  max-width: 900px;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border-radius: 18px;
+  overflow: hidden;
+  animation: scaleIn 0.4s ease;
+}
+
+.video-modal-content iframe {
+  width: 100%;
+  height: 100%;
+}
+
+/* CLOSE BUTTON */
+.video-close {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  background: transparent;
+  color: #fff;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* OPEN ANIMATION */
+@keyframes scaleIn {
+  from {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .video-modal-content {
+    width: 95%;
+  }
+}
